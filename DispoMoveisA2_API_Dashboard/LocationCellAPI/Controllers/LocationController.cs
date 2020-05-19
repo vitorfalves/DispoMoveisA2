@@ -10,9 +10,17 @@ namespace LocationCellAPI.Controllers
     public class LocationController : ApiController
     {
         // GET: api/Location
+        [HttpGet]
+        [ActionName("DefaultAction")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value10", "value20" };
+        }
+
+        [HttpGet]
+        public string Teste()
+        {
+            return "value10";
         }
 
         // GET: api/Location/5
@@ -22,8 +30,11 @@ namespace LocationCellAPI.Controllers
         }
 
         // POST: api/Location
-        public void Post([FromBody]string value)
+        //[ActionName("DefaultAction")] <-- UTILIZAR QUANDO A ACTION FOR O PRÓPRIO CONTROLADOR -->
+        [ActionName("DefaultAction")]
+        public string Post([FromBody]string value)
         {
+            return "value";
         }
     }
 }
