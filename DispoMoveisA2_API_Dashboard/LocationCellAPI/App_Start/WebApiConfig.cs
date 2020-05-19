@@ -19,6 +19,9 @@ namespace LocationCellAPI
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional, Action = "DefaultAction" }
             );
+
+            var formatters = GlobalConfiguration.Configuration.Formatters;
+            formatters.Remove(formatters.XmlFormatter);
         }
     }
 }

@@ -31,6 +31,7 @@ namespace LocationCellAPI.Controllers
 
         // POST: api/Location
         //[ActionName("DefaultAction")] <-- UTILIZAR QUANDO A ACTION FOR O PRÓPRIO CONTROLADOR -->
+        [HttpPost]
         [ActionName("DefaultAction")]
         public string Post([FromBody]string value)
         {
