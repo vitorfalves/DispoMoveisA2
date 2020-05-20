@@ -16,8 +16,13 @@ namespace LocationCellAPI.ORM
         {
             Models.Location location = new Models.Location()
             {
-                Altitude = Convert.ToInt64(jsonLocation.Altitude),
-                Longitude = Convert.ToInt64(jsonLocation.Longitude)
+                Latitude = jsonLocation.Latitude,
+                Longitude = jsonLocation.Longitude,
+                Bairro = jsonLocation.Bairro,
+                Cidade = jsonLocation.Cidade,
+                Estado = jsonLocation.Estado,
+                Pais = jsonLocation.Pais,
+                Rua = jsonLocation.Rua
             };
 
             InsertLocation(location);
@@ -30,8 +35,13 @@ namespace LocationCellAPI.ORM
             string procName = "InsertLocation";
             SqlCommand command = new SqlCommand(procName, connection);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add(new SqlParameter("@paramAltitude", SqlDbType.BigInt)).Value = location.Altitude;
-            command.Parameters.Add(new SqlParameter("@paramLongitude", SqlDbType.BigInt)).Value = location.Longitude;
+            command.Parameters.Add(new SqlParameter("@paramLatitude", SqlDbType.NVarChar)).Value = location.Latitude;
+            command.Parameters.Add(new SqlParameter("@paramLongitude", SqlDbType.NVarChar)).Value = location.Longitude;
+            command.Parameters.Add(new SqlParameter("@paramCidade", SqlDbType.NVarChar)).Value = location.Cidade;
+            command.Parameters.Add(new SqlParameter("@paramEstado", SqlDbType.NVarChar)).Value = location.Estado;
+            command.Parameters.Add(new SqlParameter("@paramRua", SqlDbType.NVarChar)).Value = location.Rua;
+            command.Parameters.Add(new SqlParameter("@paramBairro", SqlDbType.NVarChar)).Value = location.Bairro;
+            command.Parameters.Add(new SqlParameter("@paramPais", SqlDbType.NVarChar)).Value = location.Pais;
 
             //SqlParameter ParamId = cmd.Parameters.Add("@Id", SqlDbType.Int);
             //ParamId.Direction = ParameterDirection.InputOutput;

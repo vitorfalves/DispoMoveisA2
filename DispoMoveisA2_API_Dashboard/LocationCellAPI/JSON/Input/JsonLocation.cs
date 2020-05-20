@@ -20,8 +20,11 @@ namespace LocationCellAPI.JSON.Input
         [JsonProperty("Rua")]
         public string Rua { get; set; }
 
-        [JsonProperty("Altitude")]
-        public string Altitude { get; set; }
+        [JsonProperty("Pais")]
+        public string Pais { get; set; }
+
+        [JsonProperty("Latitude")]
+        public string Latitude { get; set; }
 
         [JsonProperty("Longitude")]
         public string Longitude { get; set; }

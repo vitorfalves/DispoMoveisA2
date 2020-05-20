@@ -7,8 +7,18 @@ namespace LocationCellAPI.Models
 {
     public class Location
     {
-        public long Altitude { get; set; }
+        public string Latitude { get; set; }
 
-        public long Longitude { get; set; }
+        public string Longitude { get; set; }
+
+        public string Cidade { get; set; }
+
+        public string Estado { get; set; }
+
+        public string Bairro { get; set; }
+
+        public string Rua { get; set; }
+
+        public string Pais { get; set; }
     }
 }
