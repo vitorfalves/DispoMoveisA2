@@ -7,5 +7,8 @@ namespace LocationCellAPI.Models
 {
     public class Location
     {
+        public long Altitude { get; set; }
+
+        public long Longitude { get; set; }
     }
 }

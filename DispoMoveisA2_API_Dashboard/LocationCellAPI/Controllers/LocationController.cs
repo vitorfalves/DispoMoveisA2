@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocationCellAPI.JSON.Input;
+using LocationCellAPI.ORM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -29,13 +31,20 @@ namespace LocationCellAPI.Controllers
             return "value";
         }
 
-        // POST: api/Location
         //[ActionName("DefaultAction")] <-- UTILIZAR QUANDO A ACTION FOR O PRÓPRIO CONTROLADOR -->
         [HttpPost]
         [ActionName("DefaultAction")]
-        public string Post([FromBody]string value)
+        public string Post(JsonLocation jsonLocation)
         {
-            return "value";
+            try
+            {
+                LocationDAO.InitializeInsertLocation(jsonLocation);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return "ROSE";
         }
     }
 }
