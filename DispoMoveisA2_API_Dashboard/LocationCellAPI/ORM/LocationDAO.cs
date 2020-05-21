@@ -42,6 +42,7 @@ namespace LocationCellAPI.ORM
             command.Parameters.Add(new SqlParameter("@paramRua", SqlDbType.NVarChar)).Value = location.Rua;
             command.Parameters.Add(new SqlParameter("@paramBairro", SqlDbType.NVarChar)).Value = location.Bairro;
             command.Parameters.Add(new SqlParameter("@paramPais", SqlDbType.NVarChar)).Value = location.Pais;
+            command.Parameters.Add(new SqlParameter("@paramDataCriacao", SqlDbType.DateTime)).Value = DateTime.Now;
 
             //SqlParameter ParamId = cmd.Parameters.Add("@Id", SqlDbType.Int);
             //ParamId.Direction = ParameterDirection.InputOutput;

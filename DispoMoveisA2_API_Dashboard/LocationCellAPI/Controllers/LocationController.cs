@@ -44,7 +44,7 @@ namespace LocationCellAPI.Controllers
             {
 
             }
-            return "ROSE";
+            return "Location";
         }
     }
 }

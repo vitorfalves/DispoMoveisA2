@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocationCellAPI.JSON.Input;
+using LocationCellAPI.ORM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,21 +11,29 @@ namespace LocationCellAPI.Controllers
 {
     public class SensorController : ApiController
     {
-        // GET: api/Sensor
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Sensor/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Sensor
-        public void Post([FromBody]string value)
+        [HttpPost]
+        [ActionName("DefaultAction")]
+        public string Post(JsonSensor jsonSensor)
         {
+            try
+            {
+                SensorDAO.InitializeInsertSensor(jsonSensor);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return "Sensor";
         }
 
     }
