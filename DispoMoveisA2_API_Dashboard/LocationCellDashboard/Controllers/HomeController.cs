@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocationCellAPI.Models;
+using LocationCellDashboard.ORM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +12,9 @@ namespace LocationCellDashboard.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            List<LocationSensor> locationSensor = LocationSensorDAO.InitializeGetLocationSensor();
+
+            return View(locationSensor);
         }
 
         public ActionResult About()
@@ -26,5 +30,12 @@ namespace LocationCellDashboard.Controllers
 
             return View();
         }
+
+        //public ActionResult ListLocationSensor()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
     }
 }
